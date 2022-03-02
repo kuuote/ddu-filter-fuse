@@ -1,0 +1,61 @@
+*ddu-filter-matcher_fuse.txt* ddu.vim matcher that uses fuse.js
+
+Author: kuuote
+License: MIT license
+
+CONTENTS				*ddu-filter-matcher_fuse*
+
+Introduction		|ddu-filter-matcher_fuse-introduction|
+Install			|ddu-filter-matcher_fuse-install|
+Examples		|ddu-filter-matcher_fuse-examples|
+Params			|ddu-filter-matcher_fuse-params|
+
+
+==============================================================================
+INTRODUCTION			*ddu-filter-matcher_fuse-introduction*
+
+This matcher filter items by fuse.js
+https://fusejs.io
+
+==============================================================================
+INSTALL				*ddu-filter-matcher_fuse-install*
+
+Please install both "ddu.vim" and "denops.vim".
+
+https://github.com/Shougo/ddu.vim
+https://github.com/vim-denops/denops.vim
+
+
+==============================================================================
+EXAMPLES			*ddu-filter-matcher_fuse-examples*
+>
+	call ddu#custom#patch_global({
+	    \   'sourceOptions': {
+	    \     '_': {
+	    \       'matchers': ['matcher_fuse'],
+	    \     },
+	    \   },
+	    \   'filterParams': {
+	    \     'matcher_fuse': {
+	    \       'threshold': 0.6,
+	    \     },
+	    \   }
+	    \ })
+<
+
+==============================================================================
+PARAMS				*ddu-filter-matcher_fuse-params*
+
+description from https://fusejs.io/api/options.html
+
+			*ddu-filter-matcher_fuse-param-highlightMatched*
+threshold (float)
+		At what point does the match algorithm give up.
+		A threshold of 0.0 requires a perfect match
+		(of both letters and location),
+		a threshold of 1.0 would match anything.
+
+		Default: 0.6
+
+==============================================================================
+vim:tw=78:ts=8:ft=help:norl:noet:fen:noet:
