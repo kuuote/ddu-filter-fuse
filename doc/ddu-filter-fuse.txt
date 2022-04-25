@@ -1,4 +1,4 @@
-*ddu-filter-matcher_fuse.txt* ddu.vim matcher that uses fuse.js
+*ddu-filter-fuse.txt*	ddu.vim matcher that uses fuse.js
 
 Author: kuuote
 License: MIT license
