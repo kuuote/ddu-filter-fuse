@@ -24,6 +24,7 @@ export class Filter extends BaseFilter<Params> {
     }
 
     const options: Fuse.IFuseOptions<DduItem> = {
+      ignoreLocation: true,
       includeMatches: true,
       isCaseSensitive: !args.sourceOptions.ignoreCase,
       keys: ["matcherKey"],
