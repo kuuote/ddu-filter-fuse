@@ -14,7 +14,7 @@ Params			|ddu-filter-matcher_fuse-params|
 ==============================================================================
 INTRODUCTION			*ddu-filter-matcher_fuse-introduction*
 
-This matcher filter items by fuse.js
+This is |ddu-filters| matching items by fuse.js
 https://fusejs.io
 
 ==============================================================================
