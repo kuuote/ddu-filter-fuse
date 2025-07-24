@@ -30,13 +30,14 @@ export class Filter extends BaseFilter<MatcherFuseParams> {
 
     const fuse = new Fuse<DduItem>(args.items, options);
     const items = fuse.search(args.input).map((result) => {
-      const { item, score } = result as Required<typeof result>;
+      const { item, score, matches } = result as Required<typeof result>;
       return {
         ...item,
         data: {
           ...item.data as Record<string, unknown>,
           matcher_fuse: {
             score,
+            matches: matches.flatMap((m) => m.indices),
           },
         } satisfies MatcherFuseItemData,
       };

@@ -19,6 +19,18 @@ export type MatcherFuseParams = {
 export type SorterFuseParams = Record<string, never>;
 
 /**
+ * Type definitions for the `converter_fuse_highlight` Ddu filter.
+ */
+export type ConverterFuseHighlightParams = {
+  /**
+   * The highlight group name to highlight matched text.
+   *
+   * @default "Search"
+   */
+  highlightMatched: string;
+};
+
+/**
  * Type definitions for the `matcher_fuse` Ddu item data.
  */
 export interface MatcherFuseItemData {
@@ -33,6 +45,11 @@ export interface MatcherFuseItemData {
      * @see https://fusejs.io/api/options.html#includescore
      */
     score: number;
+
+    /**
+     * An array of match positions.
+     */
+    matches: Match[];
   };
 }
 
