@@ -1,8 +1,7 @@
 import type { Denops } from "jsr:@denops/core@^7.0.0";
 import { BaseFilter } from "jsr:@shougo/ddu-vim@^10.0.0/filter";
 import type { DduItem, SourceOptions } from "jsr:@shougo/ddu-vim@^10.0.0/types";
-// @deno-types="https://deno.land/x/fuse@v6.4.1/dist/fuse.d.ts";
-import Fuse from "https://deno.land/x/fuse@v6.4.1/dist/fuse.esm.min.js";
+import Fuse, { type IFuseOptions } from "npm:fuse.js@^7.0.0";
 
 type Params = {
   threshold: number;
@@ -20,7 +19,7 @@ export class Filter extends BaseFilter<Params> {
       return Promise.resolve(args.items);
     }
 
-    const options: Fuse.IFuseOptions<DduItem> = {
+    const options: IFuseOptions<DduItem> = {
       ignoreLocation: true,
       includeMatches: true,
       isCaseSensitive: !args.sourceOptions.ignoreCase,
