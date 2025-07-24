@@ -1,6 +1,9 @@
 import type { Denops } from "jsr:@denops/core@^7.0.0";
-import { BaseFilter } from "jsr:@shougo/ddu-vim@^10.0.0/filter";
-import type { DduItem, SourceOptions } from "jsr:@shougo/ddu-vim@^10.0.0/types";
+import {
+  BaseFilter,
+  type FilterArguments,
+} from "jsr:@shougo/ddu-vim@^10.0.0/filter";
+import type { DduItem } from "jsr:@shougo/ddu-vim@^10.0.0/types";
 import Fuse, { type IFuseOptions } from "npm:fuse.js@^7.0.0";
 
 type Params = {
@@ -8,15 +11,9 @@ type Params = {
 };
 
 export class Filter extends BaseFilter<Params> {
-  filter(args: {
-    denops: Denops;
-    sourceOptions: SourceOptions;
-    filterParams: Params;
-    input: string;
-    items: DduItem[];
-  }): Promise<DduItem[]> {
+  override filter(args: FilterArguments<Params>): DduItem[] {
     if (args.input == "") {
-      return Promise.resolve(args.items);
+      return args.items;
     }
 
     const options: IFuseOptions<DduItem> = {
@@ -29,7 +26,8 @@ export class Filter extends BaseFilter<Params> {
     };
 
     const fuse = new Fuse<DduItem>(args.items, options);
-    return Promise.resolve(fuse.search(args.input).map((r) => r.item));
+    const items = fuse.search(args.input).map((r) => r.item);
+    return items;
   }
 
   params(): Params {
