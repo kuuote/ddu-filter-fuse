@@ -8,7 +8,7 @@ import {
 import Fuse from "https://deno.land/x/fuse@v6.4.1/dist/fuse.esm.min.js";
 
 type Params = {
-  threshold: number,
+  threshold: number;
 };
 
 export class Filter extends BaseFilter<Params> {
@@ -30,7 +30,7 @@ export class Filter extends BaseFilter<Params> {
       keys: ["matcherKey"],
       shouldSort: true,
       threshold: args.filterParams.threshold,
-    }
+    };
 
     const fuse = new Fuse<DduItem>(args.items, options);
     return Promise.resolve(fuse.search(args.input).map((r) => r.item));
