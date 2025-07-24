@@ -1,9 +1,6 @@
-import { Denops } from "https://deno.land/x/ddu_vim@v1.2.0/deps.ts";
-import {
-  BaseFilter,
-  DduItem,
-  SourceOptions,
-} from "https://deno.land/x/ddu_vim@v1.2.0/types.ts";
+import type { Denops } from "jsr:@denops/core@^7.0.0";
+import { BaseFilter } from "jsr:@shougo/ddu-vim@^10.0.0/filter";
+import type { DduItem, SourceOptions } from "jsr:@shougo/ddu-vim@^10.0.0/types";
 // @deno-types="https://deno.land/x/fuse@v6.4.1/dist/fuse.d.ts";
 import Fuse from "https://deno.land/x/fuse@v6.4.1/dist/fuse.esm.min.js";
 
