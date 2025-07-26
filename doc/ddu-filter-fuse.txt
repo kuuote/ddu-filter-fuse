@@ -1,24 +1,30 @@
-*ddu-filter-fuse.txt*	ddu.vim matcher that uses fuse.js
+*ddu-filter-fuse.txt*	ddu.vim matcher, sorter, converter that uses Fuse.js
 
 Author: kuuote
 License: MIT license
 
-CONTENTS				*ddu-filter-matcher_fuse*
+					*ddu-filter-matcher_fuse*
+					*ddu-filter-sorter_fuse*
+					*ddu-filter-converter_fuse_highlight*
+CONTENTS				*ddu-filter-fuse*
 
-Introduction		|ddu-filter-matcher_fuse-introduction|
-Install			|ddu-filter-matcher_fuse-install|
-Examples		|ddu-filter-matcher_fuse-examples|
-Params			|ddu-filter-matcher_fuse-params|
+Introduction			|ddu-filter-fuse-introduction|
+Install				|ddu-filter-fuse-install|
+Examples			|ddu-filter-fuse-examples|
+Params				|ddu-filter-fuse-params|
+  Matcher Params		|ddu-filter-matcher_fuse-params|
+  Sorter Params			|ddu-filter-sorter_fuse-params|
+  Converter Highlight Params	|ddu-filter-converter_fuse_highlight-params|
 
 
 ==============================================================================
-INTRODUCTION			*ddu-filter-matcher_fuse-introduction*
+INTRODUCTION			*ddu-filter-fuse-introduction*
 
-This is |ddu-filters| matching items by fuse.js
+This is |ddu-filters| matching and sorting items by Fuse.js
 https://fusejs.io
 
 ==============================================================================
-INSTALL				*ddu-filter-matcher_fuse-install*
+INSTALL				*ddu-filter-fuse-install*
 
 Please install both "ddu.vim" and "denops.vim".
 
@@ -27,26 +33,36 @@ https://github.com/vim-denops/denops.vim
 
 
 ==============================================================================
-EXAMPLES			*ddu-filter-matcher_fuse-examples*
->
-	call ddu#custom#patch_global({
-	    \   'sourceOptions': {
-	    \     '_': {
-	    \       'matchers': ['matcher_fuse'],
+EXAMPLES			*ddu-filter-fuse-examples*
+>vim
+	call ddu#custom#patch_global(#{
+	    \   sourceOptions: #{
+	    \     _: #{
+	    \       matchers: ['matcher_fuse'],
+	    \       sorters: ['sorter_fuse'],
+	    \       filters: ['converter_fuse_highlight'],
 	    \     },
 	    \   },
-	    \   'filterParams': {
-	    \     'matcher_fuse': {
-	    \       'threshold': 0.6,
+	    \   filterParams: #{
+	    \     matcher_fuse: #{
+	    \       threshold: 0.6,
+	    \     },
+	    \     converter_fuse_highlight: #{
+	    \       highlightMatched: 'Search',
 	    \     },
 	    \   }
 	    \ })
 <
 
 ==============================================================================
-PARAMS				*ddu-filter-matcher_fuse-params*
+PARAMS				*ddu-filter-fuse-params*
 
-description from https://fusejs.io/api/options.html
+Some descriptions from https://fusejs.io/api/options.html
+
+------------------------------------------------------------------------------
+MATCHER PARAMS			*ddu-filter-matcher_fuse-params*
+
+`matcher_fuse` has following optional parameters:
 
 			*ddu-filter-matcher_fuse-param-highlightMatched*
 threshold (float)
@@ -56,6 +72,24 @@ threshold (float)
 		a threshold of 1.0 would match anything.
 
 		Default: 0.6
+
+
+------------------------------------------------------------------------------
+SORTER PARAMS			*ddu-filter-sorter_fuse-params*
+
+`sorter_fuse` has no optional parameters:.
+
+
+------------------------------------------------------------------------------
+CONVERTER HIGHLIGHT PARAMS	*ddu-filter-converter_fuse_highlight-params*
+
+`converter_fuse_highlight` has following optional parameters:
+
+highlightMatched (string)
+		The highlight group name to highlight matched text.
+
+		Default: 'Search'
+
 
 ==============================================================================
 vim:tw=78:ts=8:ft=help:norl:noet:fen:noet:
