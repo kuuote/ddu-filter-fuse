@@ -41,7 +41,7 @@ EXAMPLES			*ddu-filter-fuse-examples*
 	    \     _: #{
 	    \       matchers: ['matcher_fuse'],
 	    \       sorters: ['sorter_fuse'],
-	    \       filters: ['converter_fuse_highlight'],
+	    \       converters: ['converter_fuse_highlight'],
 	    \     },
 	    \   },
 	    \   filterParams: #{
