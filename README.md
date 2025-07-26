@@ -23,6 +23,7 @@ searching.
 ## Installation
 
 > [!IMPORTANT]
+>
 > This repository has been transferred from the original author. While GitHub
 > automatically redirects from the old URL, it is recommended to update your
 > clone origin, or plugin manager configuration to the new URL.
