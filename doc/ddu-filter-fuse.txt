@@ -1,6 +1,7 @@
 *ddu-filter-fuse.txt*	ddu.vim matcher, sorter, converter that uses Fuse.js
 
-Author: kuuote
+Author: Milly
+Original Author: kuuote
 License: MIT license
 
 					*ddu-filter-matcher_fuse*
